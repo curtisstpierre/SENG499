@@ -24,7 +24,7 @@ def index():
 
 @app.route('/js/<path:path>')
 def send_js(path):
-    return send_from_directory('./', path)
+    return send_from_directory('/var/www/SENG499/src/', path)
 
 
 if __name__ == '__main__':

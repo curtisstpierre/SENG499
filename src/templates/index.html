@@ -12,7 +12,6 @@
       $('button').bind('click', function() {
         $.getJSON($SCRIPT_ROOT + '/_add_numbers', function(data) {
           $("#target_image").attr('src',"/js/" + data.result + ".jpg?"+Date.now());
-          $("#result").text(data.result);
         });
         return false;
       });
@@ -22,6 +21,7 @@
   <body>
     <h1>Video Streaming Demonstration</h1>
     <img id=target_image src="/js/1.jpg">
+    <span>
 <p>
 <button id=calculate type="button">Update Target</button>
   </body>
