@@ -3,12 +3,19 @@ from flask import Flask, render_template, Response, send_from_directory, jsonify
 
 app = Flask(__name__)
 image_num = 0
+unique_num = 0
 @app.route('/_add_numbers')
 def add_numbers():
     global image_num
     image_num += 1
     image_num = image_num % 3
     return jsonify(result=image_num + 1)
+
+#@app.route('/_unique_numbers')
+#def unique_numbers():
+ #   global unique_num
+ #   unique_num += 1
+ #   return jsonify(result=unique_num)
 
 @app.route('/')
 def index():

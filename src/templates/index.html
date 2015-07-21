@@ -7,25 +7,22 @@
   <script type=text/javascript>
   $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
+  <script type=text/javascript>
+    $(function() {
+      $('button').bind('click', function() {
+        $.getJSON($SCRIPT_ROOT + '/_add_numbers', function(data) {
+          $("#target_image").attr('src',"/js/" + data.result + ".jpg?"+Date.now());
+          $("#result").text(data.result);
+        });
+        return false;
+      });
+    });
+  </script>
   </head>
   <body>
     <h1>Video Streaming Demonstration</h1>
     <img id=target_image src="/js/1.jpg">
-
-    <script type=text/javascript>
-      $(function() {
-        $('a#calculate').bind('click', function() {
-          $.getJSON($SCRIPT_ROOT + '/_add_numbers', function(data) {
-            $("#target_image").attr('src',"/js/" + data.result + ".jpg");
-            $("#result").text(data.result);
-          });
-          return false;
-        });
-      });
-    </script>
-<h1>jQuery Example</h1>
 <p>
-   <span id=result>?</span>
-<p><a href=# id=calculate>calculate server side</a>
+<button id=calculate type="button">Update Target</button>
   </body>
 </html>
